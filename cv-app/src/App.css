@@ -1,0 +1,9 @@
+* {
+  border: 1px solid red;
+  margin: 0px;
+  padding: 0px;
+}
+.CV {
+  display: flex;
+  max-width: 1800px;
+}
