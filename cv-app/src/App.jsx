@@ -1,5 +1,9 @@
 // import { useState } from "react";
-import { IoDocumentTextOutline, IoSchool } from "react-icons/io5";
+import {
+  IoDocumentTextOutline,
+  IoSchool,
+  IoPersonSharp,
+} from "react-icons/io5";
 import { FaTools, FaTrash, FaPhone } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
@@ -22,17 +26,20 @@ function App() {
         </div>
         <div className="formContainer">
           <div className="controls">
-            <button>
+            <button className="deleteBtn">
               <FaTrash />
               Clear Resume
             </button>
             <button>Load Example</button>
           </div>
           <form className="personalDetailsForm">
-            <h2>Personal Details</h2>
+            <h2 className="inputh2">
+              <IoPersonSharp />
+              Personal Details
+            </h2>
             <label>
               <h3>Full Name:</h3>
-              <input type="text" name="fullName" />
+              <input type="text" name="fullName" placeholder="test" />
             </label>
             <label>
               <h3>Email:</h3>
@@ -47,12 +54,12 @@ function App() {
               <input type="text" name="address" />
             </label>
           </form>
-          <div className="educationForm">
-            <h2>
+          <div className="educationForm ">
+            <h2 className="inputh2">
               <IoSchool />
               Education
             </h2>
-            <form className="educationDetailsForm">
+            <form className="educationDetailsForm inputForms">
               <label>
                 <h3>School:</h3>
                 <input type="text" name="school" />
@@ -76,13 +83,13 @@ function App() {
                 <input type="text" name="location" />
               </label>
               <div className="formButtons">
-                <button>
+                <button className="deleteBtn">
                   <FaTrash />
                   Delete
                 </button>
-                <div>
-                  <button>Cancel</button>
-                  <button>Save</button>
+                <div className="formSaveCancel">
+                  <button className="cancelBtn">Cancel</button>
+                  <button className="saveBtn">Save</button>
                 </div>
               </div>
             </form>
@@ -92,11 +99,11 @@ function App() {
             </div>
           </div>
           <div className="experienceForm">
-            <h2>
+            <h2 className="inputh2">
               <MdWorkHistory />
               Experience
             </h2>
-            <form className="experienceDetailsForm">
+            <form className="experienceDetailsForm inputForms">
               <label>
                 <h3>Company Name:</h3>
                 <input type="text" name="company" />
@@ -124,13 +131,13 @@ function App() {
                 <textarea name="description"></textarea>
               </label>
               <div className="formButtons">
-                <button>
+                <button className="deleteBtn">
                   <FaTrash />
                   Delete
                 </button>
-                <div>
-                  <button>Cancel</button>
-                  <button>Save</button>
+                <div className="formSaveCancel">
+                  <button className="cancelBtn">Cancel</button>
+                  <button className="saveBtn">Save</button>
                 </div>
               </div>
             </form>
