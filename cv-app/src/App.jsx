@@ -9,6 +9,7 @@ import { IoIosMail } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdWorkHistory } from "react-icons/md";
 import "./App.css";
+import "./CVPreview.css";
 
 function App() {
   return (
@@ -94,8 +95,8 @@ function App() {
               </div>
             </form>
             <div className="education"></div>
-            <div className="addEducationButton">
-              <button>Add Education</button>
+            <div className="addEducationButton addBtnDiv">
+              <button className="addBtn">Add Education</button>
             </div>
           </div>
           <div className="experienceForm">
@@ -142,8 +143,8 @@ function App() {
               </div>
             </form>
             <div className="experience"></div>
-            <div className="addExperienceButton">
-              <button>Add Job</button>
+            <div className="addExperienceButton addBtnDiv">
+              <button className="addBtn">Add Job</button>
             </div>
           </div>
         </div>
