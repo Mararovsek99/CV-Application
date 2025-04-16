@@ -6,7 +6,6 @@
   align-items: stretch;
   flex-direction: column;
   width: 100%;
-  gap: 20px;
   box-sizing: border-box;
   flex: 0 0 21cm;
   height: 29.7cm !important;
@@ -35,11 +34,28 @@
   gap: 20px;
 }
 .CVPreview h2 {
-  --HeaderMargin: 30px;
   color: var(--CVColor);
   background-color: var(--color-gray-200);
-  font-size: 1.5em;
-  margin: 30px auto 15px;
-  width: 85%; /* Subtracting the left and right margins */
+  font-size: 1.25em;
+  margin: 15px 0px;
+  width: 100%;
   text-align: center;
+}
+.educationPreview,
+.experiencePreview {
+  margin: 30px 40px;
+}
+.educationItem,
+.experienceItem {
+  display: flex;
+  gap: 20px;
+}
+.iconeGap {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  justify-content: center;
+}
+.experienceItemDate {
+  min-width: 180px;
 }

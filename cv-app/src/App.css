@@ -28,6 +28,7 @@
 .settings {
   max-width: 120px;
   height: max-content;
+  padding: 15px 5px;
 }
 .settings > * {
   display: flex;
@@ -59,7 +60,8 @@
 .deleteBtn,
 .inputh2 {
   display: flex;
-  gap: 7px;
+  gap: 8px;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }

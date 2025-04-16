@@ -1,17 +1,19 @@
-// import { useState } from "react";
-import {
-  IoDocumentTextOutline,
-  IoSchool,
-  IoPersonSharp,
-} from "react-icons/io5";
-import { FaTools, FaTrash, FaPhone } from "react-icons/fa";
-import { IoIosMail } from "react-icons/io";
-import { FaLocationDot } from "react-icons/fa6";
-import { MdWorkHistory } from "react-icons/md";
+import { useState } from "react";
+import { IoDocumentTextOutline } from "react-icons/io5";
+import { FaTools, FaTrash } from "react-icons/fa";
 import "./App.css";
 import "./CVPreview.css";
+import AppPreview from "./components/AppPreview";
+import PersonalDetails from "./components/PersonalDetails";
+import EducationInput from "./components/EducationInput";
+import ExperienceInput from "./components/ExperienceInput";
 
 function App() {
+  const [openInputSection, setopenInputSection] = useState(null);
+
+  const handleSection = (section) => {
+    setopenInputSection((prev) => (prev === section ? null : section));
+  };
   return (
     <div className="CV">
       <div className="input">
@@ -33,192 +35,28 @@ function App() {
             </button>
             <button>Load Example</button>
           </div>
-          <form className="personalDetailsForm">
-            <h2 className="inputh2">
-              <IoPersonSharp />
-              Personal Details
-            </h2>
-            <label>
-              <h3>Full Name:</h3>
-              <input type="text" name="fullName" placeholder="test" />
-            </label>
-            <label>
-              <h3>Email:</h3>
-              <input type="email" name="email" />
-            </label>
-            <label>
-              <h3>Phone Number:</h3>
-              <input type="tel" name="phone" />
-            </label>
-            <label>
-              <h3>Address:</h3>
-              <input type="text" name="address" />
-            </label>
-          </form>
-          <div className="educationForm ">
-            <h2 className="inputh2">
-              <IoSchool />
-              Education
-            </h2>
-            <form className="educationDetailsForm inputForms">
-              <label>
-                <h3>School:</h3>
-                <input type="text" name="school" />
-              </label>
-              <label>
-                <h3>Degree:</h3>
-                <input type="text" name="degree" />
-              </label>
-              <div className="dateInputs">
-                <label>
-                  <h3>Start Date:</h3>
-                  <input type="date" name="startDate" />
-                </label>
-                <label>
-                  <h3>End Date:</h3>
-                  <input type="date" name="endDate" />
-                </label>
-              </div>
-              <label>
-                <h3>Location:</h3>
-                <input type="text" name="location" />
-              </label>
-              <div className="formButtons">
-                <button className="deleteBtn">
-                  <FaTrash />
-                  Delete
-                </button>
-                <div className="formSaveCancel">
-                  <button className="cancelBtn">Cancel</button>
-                  <button className="saveBtn">Save</button>
-                </div>
-              </div>
-            </form>
-            <div className="education"></div>
-            <div className="addEducationButton addBtnDiv">
-              <button className="addBtn">Add Education</button>
-            </div>
-          </div>
-          <div className="experienceForm">
-            <h2 className="inputh2">
-              <MdWorkHistory />
-              Experience
-            </h2>
-            <form className="experienceDetailsForm inputForms">
-              <label>
-                <h3>Company Name:</h3>
-                <input type="text" name="company" />
-              </label>
-              <label>
-                <h3>Position Title:</h3>
-                <input type="text" name="position" />
-              </label>
-              <div className="dateInputs">
-                <label>
-                  <h3>Start Date:</h3>
-                  <input type="date" name="startDate" />
-                </label>
-                <label>
-                  <h3>End Date:</h3>
-                  <input type="date" name="endDate" />
-                </label>
-              </div>
-              <label>
-                <h3>Location:</h3>
-                <input type="text" name="location" />
-              </label>
-              <label>
-                <h3>Description:</h3>
-                <textarea name="description"></textarea>
-              </label>
-              <div className="formButtons">
-                <button className="deleteBtn">
-                  <FaTrash />
-                  Delete
-                </button>
-                <div className="formSaveCancel">
-                  <button className="cancelBtn">Cancel</button>
-                  <button className="saveBtn">Save</button>
-                </div>
-              </div>
-            </form>
-            <div className="experience"></div>
-            <div className="addExperienceButton addBtnDiv">
-              <button className="addBtn">Add Job</button>
-            </div>
-          </div>
-        </div>
-      </div>
+          <PersonalDetails />
 
-      <div className="CVPreview">
-        <div className="header">
-          <div className="headerUpper">
-            <h1>Full Name</h1>
-          </div>
-          <div className="headerLower">
-            <p>
-              <IoIosMail />
-              Email: example@example.com
-            </p>
-            <p>
-              <FaPhone />
-              Phone: 123-456-7890
-            </p>
-            <p>
-              <FaLocationDot />
-              Location: City, Country
-            </p>
-          </div>
-        </div>
-        <div className="educationPreview">
-          <h2> Education</h2>
-          <div className="educationItem">
-            <div>
-              <p>Start Date - End Date</p>
-              <p>City, Country</p>
-            </div>
-            <div>
-              <h4>School Name</h4>
-              <p>Degree</p>
-            </div>
-          </div>
-          <div className="educationItem">
-            <div>
-              <p>Start Date - End Date</p>
-              <p>City, Country</p>
-            </div>
-            <div>
-              <h4>School Name</h4>
-              <p>Degree</p>
-            </div>
-          </div>
-        </div>
-        <div className="experiencePreview">
-          <h2>Experience</h2>
-          <div className="experienceItem">
-            <div>
-              <p>Start Date - End Date</p>
-              <p>City, Country</p>
-            </div>
-            <div>
-              <h4>Company Name</h4>
-              <p>Position Title</p>
-              <p>Description of the role and responsibilities.</p>
-            </div>
-          </div>
-          <div className="experienceItem">
-            <div>
-              <p>Start Date - End Date</p>
-              <p>City, Country</p>
-            </div>
-            <div>
-              <h4>Company Name</h4>
-              <p>Position Title</p>
-              <p>Description of the role and responsibilities.</p>
-            </div>
-          </div>
+          {(openInputSection === "education" || openInputSection === null) && (
+            <>
+              <EducationInput
+                isOpen={openInputSection === "education"}
+                onToggle={() => handleSection("education")}
+              />
+            </>
+          )}
+
+          {(openInputSection === "experience" || openInputSection === null) && (
+            <>
+              <ExperienceInput
+                isOpen={openInputSection === "experience"}
+                onToggle={() => handleSection("experience")}
+              />
+            </>
+          )}
         </div>
       </div>
+      <AppPreview />
     </div>
   );
 }
