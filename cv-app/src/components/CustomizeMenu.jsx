@@ -23,7 +23,7 @@ export default function CustomizeMenu() {
 
     if (direction === "column") {
       header.style.justifyContent = "space-between";
-      header.style.justifyContent = "space-between";
+      headerLower.style.flexDirection = "row";
       headerLower.style.padding = "0px";
     } else {
       header.style.justifyContent = "unset";
