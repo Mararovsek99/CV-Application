@@ -2,55 +2,67 @@ import { FaPhone } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 
-export default function AppPreview() {
+export default function AppPreview({
+  personalData,
+  educationsData,
+  experienceData,
+}) {
   return (
     <div className="CVPreview">
       <div className="header">
         <div className="headerUpper">
-          <h1>John Doe</h1>
+          <h1>{personalData.name}</h1>
         </div>
         <div className="headerLower">
           <p className="iconeGap">
             <IoIosMail />
-            Email: john.doe@example.com
+            Email: {personalData.email}
           </p>
           <p className="iconeGap">
             <FaPhone />
-            Phone: 123-456-7890
+            Phone: {personalData.phone}
           </p>
           <p className="iconeGap">
             <FaLocationDot />
-            Location: City, Country
+            Location: {personalData.address}
           </p>
         </div>
       </div>
-      <div className="educationPreview">
-        <h2> Education</h2>
-        <div className="educationItem">
-          <div className="experienceItemDate">
-            <p>2018-09-01 - 2022-06-15</p>
-            <p>City, Country</p>
-          </div>
-          <div>
-            <h4>University of Example</h4>
-            <p>Bachelor of Science in Computer Science</p>
-          </div>
+      <div className="content">
+        <div className="educationPreview">
+          <h2> Education</h2>
+          {educationsData.map((edu) => (
+            <div className="educationItem">
+              <div className="experienceItemDate">
+                <p className="DatePreview">
+                  {edu.startDate} - {edu.endDate}
+                </p>
+                <p>{edu.location}</p>
+              </div>
+              <div>
+                <h4>{edu.school}</h4>
+                <p>{edu.degree}</p>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-      <div className="experiencePreview">
-        <h2>Experience</h2>
-        <div className="experienceItem">
-          <div className="experienceItemDate">
-            <p>2022-07-01 - 2023-10-01</p>
-            <p>City, Country</p>
-          </div>
-          <div>
-            <h4>Example Corp</h4>
-            <p>Software Engineer</p>
-            <p>
-              Developed and maintained web applications using React and Node.js.
-            </p>
-          </div>
+        <div className="experiencePreview">
+          <h2>Experience</h2>
+          {experienceData.map((exp) => (
+            <div className="experienceItem">
+              <div className="experienceItemDate">
+                <p className="DatePreview">
+                  {exp.startDate} - {exp.endDate}
+                </p>
+                <p>{exp.location}</p>
+              </div>
+              <div>
+                <h4>{exp.company}</h4>
+                <p>{exp.position}</p>
+                <p>{exp.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
